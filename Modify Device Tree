@@ -1,0 +1,29 @@
+&i2c_gpio0 {
+	status = "okay";
+	hm1055@24 {
+		status = "disabled";
+		compatible = "himax,hm1055";
+		reg = <0x24>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&pinctrl_ccap0>;
+		clocks = <&clk ccap0_gate>;
+		clock-names = "xclk";
+		reset-gpios = <&gpiom 1 GPIO_ACTIVE_LOW>; /* PM1 */
+		powerdown-gpios = <&gpiok 8 GPIO_ACTIVE_HIGH>; /* PK8 */
+		port {
+			hm1055_0: endpoint {
+				remote-endpoint = <&ccap0_1>;
+			};
+		};
+	};
+	ml56-tk@52 {
+		status = "okay";
+		compatible = "nuvoton,ml56-tk";
+		reg = <0x52>;
+		reset-gpios = <&gpiom 1 GPIO_ACTIVE_LOW>;
+		interrupt-parent = <&gpiok>;
+		interrupts = <8 IRQ_TYPE_LEVEL_LOW>;
+		irq-gpios = <&gpiok 8 0x00>;
+		ml56-tk,keymap = <10 KEY_A>, <11 KEY_B>;
+		};
+};
