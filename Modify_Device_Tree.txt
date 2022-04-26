@@ -18,6 +18,8 @@
 	};
 	ml56-tk@52 {
 		status = "okay";
+		pinctrl-names = "default";
+		pinctrl-0 = <&pinctrl_i2c_gpio0>;
 		compatible = "nuvoton,ml56-tk";
 		reg = <0x52>;
 		reset-gpios = <&gpiom 1 GPIO_ACTIVE_LOW>;
