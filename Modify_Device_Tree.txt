@@ -1,3 +1,6 @@
+
+...
+
 &i2c_gpio0 {
 	status = "okay";
 	hm1055@24 {
@@ -29,3 +32,24 @@
 		ml56-tk,keymap = <10 KEY_A>, <11 KEY_B>;
 		};
 };
+
+...
+
+&pinctrl {
+	...
+	pcfg_ml56_touchkey: pcfg-pcfg_ml56_touchkey {
+			slew-rate = <0>; /* 0:normal, 1:high */
+			input-schmitt-disable;  /* input-schmitt-disable, input-schmitt-enable */
+			bias-pull-up; /* bias-disable, bias-pull-up, bias-pull-down  */
+			power-source = <3300>; /* 1800:1.8v , 3300:3.3v */
+			drive-strength = <3>; /* 0 ~ 7 */
+	};
+	i2c_gpio0 {
+		pinctrl_i2c_gpio0: i2c_gpio0grp{
+			nuvoton,pins =
+				<SYS_GPK_MFPH_PK8MFP_GPIO		&pcfg_ml56_touchkey>;
+		};
+	};
+	...
+};
+
