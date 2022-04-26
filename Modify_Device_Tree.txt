@@ -1,5 +1,5 @@
 
-...
+/* ... */
 
 &i2c_gpio0 {
 	status = "okay";
@@ -33,10 +33,12 @@
 		};
 };
 
-...
+/* ... */
 
 &pinctrl {
-	...
+
+	/* ... */
+	
 	pcfg_ml56_touchkey: pcfg-pcfg_ml56_touchkey {
 			slew-rate = <0>; /* 0:normal, 1:high */
 			input-schmitt-disable;  /* input-schmitt-disable, input-schmitt-enable */
@@ -50,6 +52,9 @@
 				<SYS_GPK_MFPH_PK8MFP_GPIO		&pcfg_ml56_touchkey>;
 		};
 	};
-	...
+	
+	/* ... */
+	
 };
 
+/* ... */
