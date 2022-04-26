@@ -9,5 +9,4 @@ This recipe will add ml56-touchkey.ko to MA35D1 root file system and auto insert
 4. bitbake linux-ma35d1 -C compile
 5. bitbake your image
 
-The ml56-touchkey.ko will locate at /lib/modules/5.4.181/extra
-ml56-touchkey will be inserted when booting
+The ml56-touchkey.ko will locate at /lib/modules/5.4.181/extra, but ml56-touchkey.ko will be inserted when booting
